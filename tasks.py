@@ -129,10 +129,14 @@ def token_counts(string: str, k: int = 1) -> dict:
 
 # Your code here:
 # -----------------------------------------------
-token_to_id = _ # Your code here
+# Get unique tokens and sort them for consistent ordering
+unique_tokens = sorted(set(tokens))
 
-# Expected output: {'dog': 0, 'quick': 1, 'fox': 2, 'the': 3, 'over': 4, 'lazy': 5, 'brown': 6, 'jumps': 7}
-print(token_to_id)
+# Create the mapping from token to ID using dictionary comprehension
+token_to_id = {token: idx for idx, token in enumerate(unique_tokens)}
+
+# Create the mapping from ID to token using dictionary comprehension
+id_to_token = {idx: token for token, idx in token_to_id.items()}
 # -----------------------------------------------
 
 
